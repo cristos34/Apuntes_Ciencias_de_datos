@@ -1,0 +1,46 @@
+eliminar todas las imagenes
+sudo docker rmi -f $(sudo docker images -q)
+
+---
+
+eliminar todos los contenedores
+
+
+sudo docker rm $(sudo docker ps -a -q)
+
+
+
+----
+
+STOP ALL CONTAINERS
+
+sudo docker stop $(sudo docker ps -a -q)
+
+---
+STOP AND DELETE ALL CONTAINERS
+
+sudo docker stop $(sudo docker ps -a -q)
+sudo docker rm $(sudo docker ps -a -q)
+
+
+_----
+
+Actualizar Docker Compose
+sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s|sed -e 's/\(.*\)/\L\1/')-$(uname -m)" -o /usr/local/bin/docker-compose && sudo chmod +x /usr/local/bin/docker-compose
+
+
+
+
+---------------
+
+
+bloqueo de archivo
+https://itsfoss.com/could-not-get-lock-error/
+error key
+sudo apt-get install pass gnupg2
+
+# create a gpg2 key
+gpg2 --gen-key
+
+# create the password store using the gpg user id
+pass init $gpg_id

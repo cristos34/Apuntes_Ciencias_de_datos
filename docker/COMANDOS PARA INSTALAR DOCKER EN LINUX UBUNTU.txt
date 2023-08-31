@@ -1,0 +1,53 @@
+
+Fijado por JSVitonas
+JSVitonas
+hace 11 meses
+COMANDOS:💪😉
+
+----------------------------------------------COMANDOS DE WSL MAQUINA VIRTUAL DE WINDOW------------------------
+
+update ubuntu
+ apt-get update === ACTUALIZA EL UBUNTU
+
+uninstall and reinstall ssh server
+ sudo apt remove openssh-server === ELIMINA EL SERVIDOR SSH ABIERTO EN MI UBUNTU
+ sudo apt install openssh-server === INSTALAREMOS EL SERVIDOR SSH ABIERTO DE PUTTY Y ME DEJE COPIAR SU COMANDO
+                                     Y LO QUE REINSTALARA EL COMANDO SSH
+
+
+ABRIR OTRA CONSOLA DE UBUNTU PARA REALIZAR ESTOS PASOS
+
+Edit sshd_config
+ vi /etc/ssh/sshd_config ===CAMBIAR EL ARCHIVO SSH POR QUE SE HABRE OTRO
+ set PasswordAuthentication yes
+ add "AllowUsers yourusername" at end of file
+
+check ssh service
+ service ssh status
+
+If you see:  * sshd is not running
+ service ssh start
+
+restart service
+ service ssh --full-restart
+
+run
+ visudo
+
+add following line after "%sudo  ALL=(ALL:ALL) ALL"
+ %sudo ALL=NOPASSWD: /usr/sbin/sshd
+
+"Ctrl + X" to exit from it
+
+---------------------------------------------- INSTALAR DOCKER --------------------------------------------------------
+sudo apt-get update
+sudo apt-get install apt-transport-https ca-certificates curl software-properties-common -y
+Keay para validar la integridad de los archivos:
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo apt-get update
+sudo apt-get install docker-ce -y
+sudo systemctl enable docker
+usermod -aG docker (salida comando whoami)
+
+------------------------------------------------------------------------------------------------------------------------
